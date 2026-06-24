@@ -1,0 +1,16 @@
+{
+  "name": "Benjamin Berta - AI Agent Engineer",
+  "short_name": "Benjamin Berta",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f7f2",
+  "theme_color": "#111512",
+  "icons": [
+    {
+      "src": "/assets/profile.png",
+      "sizes": "460x460",
+      "type": "image/png"
+    }
+  ]
+}
+
