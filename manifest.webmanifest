@@ -3,14 +3,13 @@
   "short_name": "Benjamin Berta",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f6f7f2",
-  "theme_color": "#111512",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
   "icons": [
     {
-      "src": "/assets/profile.png",
-      "sizes": "460x460",
-      "type": "image/png"
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }
-
