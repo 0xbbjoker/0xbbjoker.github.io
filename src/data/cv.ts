@@ -15,7 +15,7 @@ export const identity = {
     "I build production AI agents, RAG and MCP/tool-use systems, TypeScript backends, and crypto-native execution — and operate them, not just demo them.",
   // elizaOS credibility (kept entirely separate from Auto).
   heroNote:
-    "Previously an early core engineer on elizaOS, one of the most-used open-source AI agent frameworks.",
+    "Previously one of the most active early contributors to elizaOS, a widely used open-source AI agent framework.",
 };
 
 export const stats = [
@@ -42,7 +42,7 @@ export const profile = {
   // sentence — so neither the copy nor the guard-grep links the two.
   paragraphs: [
     "Senior AI agent and backend platform engineer with 7+ years of software experience and 2+ years focused on AI agents, RAG, tool-use systems, and agentic workflow automation. I build production-grade agent runtimes and TypeScript backends — and operate them: logging, tracing, retries, cost controls, queues, and admin tooling. Currently founder and lead engineer at Autonomous, building Auto (auto.fun).",
-    "Earlier, as an early core engineer on elizaOS, I contributed agent orchestration, plugin architecture, MCP integrations, knowledge/RAG, and memory systems across an open-source framework used widely in crypto and AI.",
+    "Earlier, as one of the most active early contributors to elizaOS, I worked on agent orchestration, runtime behavior, MCP integrations, knowledge/RAG, and memory systems — ranked among the top of the project's open-source contributor leaderboard.",
   ],
 };
 
@@ -99,8 +99,12 @@ export const experience: Role[] = [
     title: "Early Core Engineer",
     org: "elizaOS (Eliza Labs)",
     period: "Jan 2025 – Apr 2026",
+    links: [
+      { label: "github.com/elizaOS/eliza", href: "https://github.com/elizaOS/eliza" },
+      { label: "contributor leaderboard", href: "https://elizaos.github.io/leaderboard" },
+    ],
     bullets: [
-      "Early core developer on elizaOS, an open-source AI agent framework used across crypto and AI projects; high-volume contributor as @0xbbjoker.",
+      "One of the most active contributors to elizaOS in its early days — a widely used open-source AI agent framework; ranked on the public contributor leaderboard as @0xbbjoker.",
       "Worked across the full agent stack: orchestration, plugin architecture, runtime behavior, entity/request context, CLI behavior, logging, and production safety fixes.",
       "Shipped public fixes credited in elizaOS releases, including CLI secret-leakage prevention and dev-watch rebuild-loop prevention.",
       "Built and maintained major plugin surfaces: MCP, Knowledge/RAG, Memory, web search, social/channel integrations, and onchain tooling.",
@@ -144,36 +148,39 @@ export const experience: Role[] = [
 
 export interface Work {
   name: string;
-  href?: string;
-  hrefLabel?: string;
   tag?: string;
   featured?: boolean;
   body: string;
+  links?: { label: string; href: string }[];
 }
 
 export const selectedWork: Work[] = [
   {
     name: "Orion",
-    href: "https://oriontaraban.ai",
-    hrefLabel: "oriontaraban.ai",
     tag: "Client delivery · Live",
     featured: true,
     body: "Production AI coaching agent that turns an expert's content library into a conversational coach. TypeScript content-to-skill pipeline, Convex state, Telegram/iMessage delivery, progressive memory, goal-lifecycle tracking, subscriptions, safety gating, and admin tooling — delivered end to end for the client.",
+    links: [{ label: "oriontaraban.ai", href: "https://oriontaraban.ai" }],
   },
   {
-    name: "Polymarket Indexer",
-    tag: "Data / infra",
-    body: "Monorepo with API, workers, test suites, and integrity checks, plus a Python data-reconstruction pipeline, MCP/plugin surfaces, and production deployment setup.",
+    name: "Auto",
+    tag: "My product · Live",
+    body: "AI trading agent that executes trades across crypto, tokenized stocks, prediction markets, and DeFi from natural-language conversation — built and operated end to end across 12+ chains (full detail in Experience).",
+    links: [
+      { label: "auto.fun", href: "https://auto.fun" },
+      { label: "docs.auto.fun", href: "https://docs.auto.fun" },
+    ],
   },
   {
-    name: "elizaOS plugin ecosystem",
+    name: "elizaOS — open-source contributor",
     tag: "Open source",
-    body: "Knowledge, MCP, Memory, Sourcegraph, EVM, Twitter, and Discord plugin work — production configuration, runtime isolation, batch embeddings, per-user MCP connections, and developer ergonomics.",
+    body: "One of the most active contributors to elizaOS in its early days — a widely used open-source AI agent framework. Contributions are public on the org monorepo and the contributor leaderboard.",
+    links: [
+      { label: "github.com/elizaOS/eliza", href: "https://github.com/elizaOS/eliza" },
+      { label: "leaderboard", href: "https://elizaos.github.io/leaderboard" },
+    ],
   },
 ];
-
-export const earlierWork =
-  "Earlier web3: Hedera, Ethereum dApps, token swaps, private blockchain systems, wallet connections, and trading-automation experiments.";
 
 export interface SkillGroup {
   label: string;

@@ -8,12 +8,10 @@ import {
   profile,
   experience,
   selectedWork,
-  earlierWork,
   skills,
   credentials,
   education,
   contact,
-  updated,
 } from "../data/cv";
 
 const contactBits = [
@@ -259,13 +257,15 @@ const contactBits = [
             <p>
               <strong>
                 {w.name}
-                {w.hrefLabel ? ` — ${w.hrefLabel}` : ""}.
+                {w.links?.length
+                  ? ` — ${w.links.map((l) => l.label).join(", ")}`
+                  : ""}
+                .
               </strong>{" "}
               {w.body}
             </p>
           ))
         }
-        <p>{earlierWork}</p>
       </section>
 
       <section class="cv">
