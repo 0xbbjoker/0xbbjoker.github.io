@@ -1,0 +1,55 @@
+---
+import { identity, stats, contact } from "../data/cv";
+import Button from "./Button.astro";
+---
+
+<section id="top" class="border-b">
+  <div class="mx-auto w-full max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+    <p
+      class="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground"
+    >
+      {identity.eyebrow}
+    </p>
+
+    <h1
+      class="mt-4 max-w-3xl text-balance text-[2.1rem] font-semibold leading-[1.07] tracking-tight sm:text-5xl"
+    >
+      {identity.headline}
+    </h1>
+
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+      {identity.lede}
+    </p>
+    <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+      {identity.heroNote}
+    </p>
+
+    <div class="mt-7 flex flex-wrap gap-3">
+      <Button href={`mailto:${contact.email}`}>Email me</Button>
+      <Button href={contact.github} variant="outline">GitHub</Button>
+      <Button href={contact.pdf} variant="outline" download>Download PDF</Button>
+    </div>
+
+    <div
+      class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6 text-sm"
+    >
+      <span
+        class="inline-flex items-center gap-2 rounded-full border px-3 py-1 font-medium text-muted-foreground"
+      >
+        <span class="size-1.5 rounded-full bg-foreground"></span>
+        {identity.availability}
+      </span>
+      <span class="text-muted-foreground">{identity.location}</span>
+      <dl class="flex flex-wrap gap-x-6 gap-y-1">
+        {
+          stats.map((s) => (
+            <div class="flex items-baseline gap-2">
+              <dt class="text-muted-foreground">{s.label}</dt>
+              <dd class="font-mono font-semibold tabular-nums">{s.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>

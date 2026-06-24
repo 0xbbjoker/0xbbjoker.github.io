@@ -29,27 +29,36 @@ The previous pass is functional but not final. Benjamin explicitly wants a bette
 - Keep layout polished on desktop and mobile.
 - The PDF export must remain clean and readable.
 
+## Stack
+
+Astro (static) + Tailwind v4 + shadcn-style component tokens (neutral/grayscale) +
+Geist fonts. Output is static HTML deployed to GitHub Pages. The PDF is a Playwright
+render of the dedicated `/cv` route. No React runtime ships; the dark-mode toggle is a
+tiny inline script.
+
 ## Important Files
 
-- `index.html` - full static CV page.
-- `styles.css` - visual system, responsive layout, print styles.
-- `script.js` - print/copy interactions.
-- `scripts/export-pdf.mjs` - Playwright PDF export.
-- `assets/Benjamin_Berta_CV_2026.pdf` - downloadable PDF used by the site.
-- `content/Benjamin_Berta_CV_B2B_2026.md` - canonical CV source text.
-- `content/Benjamin_Berta_CV_B2B_2026.docx` - Word CV source.
-- `content/Benjamin_Berta_B2B_Job_Targets_2026-06-24.md` - job-search positioning notes.
-- `docs/frontend-redesign-brief.md` - redesign brief for the next frontend pass.
+- `src/data/cv.ts` - single source of truth for all CV content (web + PDF read this).
+- `src/pages/index.astro` - the web CV page.
+- `src/pages/cv.astro` - dedicated print resume rendered into the PDF.
+- `src/layouts/Base.astro` - HTML head, meta, light/dark theme init.
+- `src/components/` - Nav, Hero, Section, Experience, SelectedWork, Sidebar, Footer, Button, Badge, ThemeToggle.
+- `src/styles/global.css` - Tailwind v4 + shadcn (neutral) tokens + Geist fonts.
+- `scripts/export-pdf.mjs` - Playwright PDF export (renders `/cv`).
+- `public/assets/Benjamin_Berta_CV_2026.pdf` - generated, committed PDF served by the site.
+- `CONTEXT.md` - canonical CV language / glossary (keeps Auto and elizaOS separate).
+- `content/` - source CV markdown/docx + job-target notes.
+- `docs/frontend-redesign-brief.md` - original redesign brief.
 
 ## Local Commands
 
 ```bash
 npm install
-npm run serve
-npm run export:pdf
+npm run dev         # local dev at http://localhost:4321
+npm run build       # static build to dist/
+npm run preview     # serve the build at http://localhost:4173
+npm run export:pdf  # build + render /cv to public/assets/Benjamin_Berta_CV_2026.pdf
 ```
-
-Open `http://localhost:4173` after `npm run serve`.
 
 ## Verification Before Shipping
 
@@ -66,5 +75,8 @@ Expected: no matches, except docs may mention the rule itself.
 
 ## Deployment
 
-GitHub Pages deploys via `.github/workflows/pages.yml` from `main`.
+GitHub Pages deploys via `.github/workflows/pages.yml` from `main`: it runs
+`npm ci`, `npm run build`, and publishes `dist/`. The committed
+`public/assets/Benjamin_Berta_CV_2026.pdf` is bundled into the build, so regenerate
+it with `npm run export:pdf` and commit when CV content changes.
 

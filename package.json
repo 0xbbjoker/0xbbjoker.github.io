@@ -1,14 +1,23 @@
 {
   "name": "0xbbjoker.github.io",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "serve": "python3 -m http.server 4173",
-    "export:pdf": "node scripts/export-pdf.mjs"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview --port 4173",
+    "serve": "astro preview --port 4173",
+    "export:pdf": "astro build && node scripts/export-pdf.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.2.5",
+    "@fontsource-variable/geist-mono": "^5.2.5",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.13.0",
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "playwright": "^1.57.0"
   }
 }
-

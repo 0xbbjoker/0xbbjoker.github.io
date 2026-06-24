@@ -1,0 +1,27 @@
+---
+import { contact, identity, updated } from "../data/cv";
+
+const links = [
+  { href: `mailto:${contact.email}`, label: "Email" },
+  { href: contact.github, label: "GitHub" },
+  { href: contact.linkedin, label: "LinkedIn" },
+  { href: contact.x, label: "X" },
+];
+---
+
+<footer class="border-t">
+  <div
+    class="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6"
+  >
+    <p>{identity.name} · Updated {updated}</p>
+    <div class="flex flex-wrap gap-4">
+      {
+        links.map((l) => (
+          <a href={l.href} class="transition-colors hover:text-foreground">
+            {l.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>

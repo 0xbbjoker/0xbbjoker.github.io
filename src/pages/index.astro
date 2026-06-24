@@ -1,0 +1,102 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import Experience from "../components/Experience.astro";
+import SelectedWork from "../components/SelectedWork.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Footer from "../components/Footer.astro";
+import { identity, profile, engagementFit } from "../data/cv";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: identity.name,
+  jobTitle: identity.roleFull,
+  email: "mailto:0xbbjoker@proton.me",
+  url: "https://0xbbjoker.github.io/",
+  sameAs: [
+    "https://github.com/0xbbjoker",
+    "https://www.linkedin.com/in/berta-benjamin",
+    "https://x.com/0xbbjoker",
+    "https://auto.fun",
+  ],
+  knowsAbout: [
+    "AI agents",
+    "RAG",
+    "Model Context Protocol",
+    "TypeScript",
+    "Node.js",
+    "Bun",
+    "DeFi",
+    "Workflow automation",
+  ],
+};
+---
+
+<Base title={`${identity.name} — ${identity.headline}`}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(jsonLd)}
+  />
+
+  <Nav />
+
+  <main>
+    <Hero />
+
+    <div
+      class="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 px-4 pb-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-14"
+    >
+      <div class="min-w-0">
+        <Section
+          id="profile"
+          kicker="Profile"
+          title="Production AI engineer for operated systems."
+          border={false}
+        >
+          <div class="space-y-4">
+            {
+              profile.paragraphs.map((p) => (
+                <p class="max-w-2xl text-[0.95rem] leading-relaxed text-foreground/80">
+                  {p}
+                </p>
+              ))
+            }
+          </div>
+        </Section>
+
+        <Section kicker="B2B engagement fit" title="Where I add leverage fastest.">
+          <div class="grid gap-4 sm:grid-cols-2">
+            {
+              engagementFit.map((f) => (
+                <div class="rounded-lg border bg-card p-5">
+                  <h3 class="text-sm font-semibold">{f.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {f.body}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </Section>
+
+        <Section id="experience" kicker="Experience" title="Recent work.">
+          <Experience />
+        </Section>
+
+        <Section id="work" kicker="Selected work" title="Representative systems.">
+          <SelectedWork />
+        </Section>
+      </div>
+
+      <aside class="lg:sticky lg:top-20 lg:self-start lg:pt-12">
+        <Sidebar />
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Base>
