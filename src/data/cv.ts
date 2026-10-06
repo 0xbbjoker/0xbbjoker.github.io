@@ -11,7 +11,7 @@ export const identity = {
   location: "Remote · Croatia (CET)",
   availability: "Open to lead & senior roles",
   lede:
-    "CTO at Autonomous, where I lead the team behind Auto — an AI trading agent live on 12+ chains with 1,700+ users. Hands-on: 600+ merged PRs this year.",
+    "CTO at Autonomous, where I lead the team behind Auto — an AI trading agent across 12+ chains that reached 1,700+ users. Hands-on: 600+ merged PRs this year. Demo access on request.",
   // elizaOS credibility (kept entirely separate from Auto).
   heroNote:
     "Previously a core engineer on elizaOS, the open-source AI agent framework — ranked #11 of 1,800+ contributors. Building in crypto since 2020.",
@@ -31,8 +31,6 @@ export const contact = {
   linkedinLabel: "linkedin.com/in/berta-benjamin",
   x: "https://x.com/0xbbjoker",
   xLabel: "x.com/0xbbjoker",
-  auto: "https://auto.fun",
-  autoLabel: "auto.fun",
   pdf: "/assets/Benjamin_Berta_CV_2026.pdf",
 };
 
@@ -81,12 +79,8 @@ export interface Role {
 export const experience: Role[] = [
   {
     title: "Chief Technology Officer",
-    org: "Autonomous — Auto (auto.fun)",
+    org: "Autonomous — Auto",
     period: "Jan 2026 – present",
-    links: [
-      { label: "auto.fun", href: "https://auto.fun" },
-      { label: "docs.auto.fun", href: "https://docs.auto.fun" },
-    ],
     bullets: [
       "Lead engineering at a VC-backed startup building Auto, an AI trading agent that executes trades across crypto, perps, prediction markets, tokenized stocks, and DeFi from natural-language chat.",
       "Own architecture, roadmap, and delivery for a 3-engineer team — sprint planning, code review, release process, and incident response.",
