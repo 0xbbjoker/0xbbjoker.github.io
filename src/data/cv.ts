@@ -81,6 +81,7 @@ export const experience: Role[] = [
     title: "Chief Technology Officer",
     org: "Autonomous — Auto",
     period: "Jan 2026 – present",
+    links: [{ label: "docs.auto.fun", href: "https://docs.auto.fun" }],
     bullets: [
       "Lead engineering at a VC-backed startup building Auto, an AI trading agent that executes trades across crypto, perps, prediction markets, tokenized stocks, and DeFi from natural-language chat.",
       "Own architecture, roadmap, and delivery for a 3-engineer team — sprint planning, code review, release process, and incident response.",
