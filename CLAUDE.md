@@ -1,23 +1,21 @@
 # Claude Handoff
 
-This repo is Benjamin Berta's public CV and B2B contractor profile site.
+This repo is Benjamin Berta's public CV site. Positioning and canonical wording live in `CONTEXT.md` — read it first.
 
 Live site: https://0xbbjoker.github.io/
 GitHub repo: https://github.com/0xbbjoker/0xbbjoker.github.io
 
 ## Current Goal
 
-Redesign the frontend into a stronger, more professional CV site for a senior AI agent / workflow automation / TypeScript platform engineer seeking B2B contract clients.
-
-The previous pass is functional but not final. Benjamin explicitly wants a better frontend agent to improve the design.
+Land a tech lead / engineering manager / senior engineer role in web3 and/or AI (remote, B2B-contracted long-term).
 
 ## Non-Negotiable Content Rules
 
 - Never state or imply that Auto / auto.fun uses elizaOS.
 - Auto and elizaOS may both appear as separate experience entries.
-- Position Benjamin as a professional AI agent engineer with production workflow, RAG, MCP/tool-use, TypeScript backend, and DeFi execution experience.
+- Position Benjamin as CTO / engineering lead for web3 and AI products (see `CONTEXT.md`).
 - Use `7+ years` total software engineering experience.
-- Use `2+ years` AI agents / RAG / tool-use focus.
+- Never claim Solidity; never call him co-founder/founder of Autonomous (title is CTO).
 - No profile photo or avatar in the hero.
 - Do not reintroduce the old green/dark illustrated profile-card design.
 
@@ -25,7 +23,7 @@ The previous pass is functional but not final. Benjamin explicitly wants a bette
 
 - Follow a Vercel-like black/white/neutral system: crisp, restrained, high-contrast, low ornament.
 - Reduce oversized typography; the first viewport should feel premium, not loud.
-- Prioritize scanning for recruiters/founders hiring a B2B contractor.
+- Prioritize scanning for hiring managers and recruiters.
 - Keep layout polished on desktop and mobile.
 - The PDF export must remain clean and readable.
 
@@ -42,12 +40,12 @@ tiny inline script.
 - `src/pages/index.astro` - the web CV page.
 - `src/pages/cv.astro` - dedicated print resume rendered into the PDF.
 - `src/layouts/Base.astro` - HTML head, meta, light/dark theme init.
-- `src/components/` - Nav, Hero, Section, Experience, SelectedWork, Sidebar, Footer, Button, Badge, ThemeToggle.
+- `src/components/` - Nav, Hero, Section, Experience, Sidebar, Footer, Button, Badge, ThemeToggle.
 - `src/styles/global.css` - Tailwind v4 + shadcn (neutral) tokens + Geist fonts.
 - `scripts/export-pdf.mjs` - Playwright PDF export (renders `/cv`).
 - `public/assets/Benjamin_Berta_CV_2026.pdf` - generated, committed PDF served by the site.
 - `CONTEXT.md` - canonical CV language / glossary (keeps Auto and elizaOS separate).
-- `content/` - source CV markdown/docx + job-target notes.
+- `content/` - archived June 2026 B2B CV source + job-target notes (superseded by `src/data/cv.ts`).
 - `docs/frontend-redesign-brief.md` - original redesign brief.
 
 ## Local Commands
@@ -68,7 +66,7 @@ npm run export:pdf  # build + render /cv to public/assets/Benjamin_Berta_CV_2026
 - Search the repo for forbidden or stale wording:
 
 ```bash
-rg -i "auto.*eliza|eliza.*auto|profile.png|5\\+ years|bbopar"
+rg -i "auto.*eliza|eliza.*auto|profile.png|5\\+ years|bbopar|solidity|co-?founder"
 ```
 
 Expected: no matches, except docs may mention the rule itself.

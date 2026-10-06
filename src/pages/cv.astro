@@ -7,9 +7,9 @@ import {
   identity,
   profile,
   experience,
-  selectedWork,
   skills,
   credentials,
+  workingModel,
   education,
   contact,
 } from "../data/cv";
@@ -224,7 +224,8 @@ const contactBits = [
 
       <section class="cv summary">
         <h2>Profile</h2>
-        {profile.paragraphs.map((p) => <p>{p}</p>)}
+        <p>{profile.paragraphs.join(" ")}</p>
+        <p><strong>Looking for:</strong> {profile.lookingFor} {workingModel}</p>
       </section>
 
       <section class="cv">
@@ -250,23 +251,6 @@ const contactBits = [
         }
       </section>
 
-      <section class="cv work">
-        <h2>Selected work</h2>
-        {
-          selectedWork.map((w) => (
-            <p>
-              <strong>
-                {w.name}
-                {w.links?.length
-                  ? ` — ${w.links.map((l) => l.label).join(", ")}`
-                  : ""}
-                .
-              </strong>{" "}
-              {w.body}
-            </p>
-          ))
-        }
-      </section>
 
       <section class="cv">
         <div class="grid2">
