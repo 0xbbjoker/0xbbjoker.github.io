@@ -34,7 +34,7 @@ const jsonLd = {
 };
 ---
 
-<Base title={`${identity.name} — ${identity.headline}`}>
+<Base title={`${identity.name} — ${identity.headline.replace(/\.$/, "")}`}>
   <script
     slot="head"
     type="application/ld+json"
